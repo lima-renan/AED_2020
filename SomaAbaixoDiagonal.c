@@ -1,29 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void SomaAbaixoDiagonal (int *v){
-  int x[n];
+int SomaAbaixoDiagonal (int *m){
+    int sum = 0;
   for(int i = 0; i<n; i++){
-    x[i] = v[((n-1)-i)];
+    for(int k = 0; k<n; k++){
+        if(i == k && i != (n-1) && k != (n-1) ){
+            for(l = 1; (i+l) < n; l++){
+                sum = sum = sum + m[(i+l)][k];
+            }
+        }
+    }
   }
-  for(int i = 0; i<n; i++){
-    v[i] = x[i];
-  }
+  return sum;
 }
 
 int main() {
-  int n;
-  int *v;
-  int i;
-  scanf("%d", &n);
-  v = (int *)malloc(n * sizeof(int));
+  int *m, sum;
+  m = (int *)malloc(n * sizeof(int));
     for (i = 0; i < n; i++) {
-        scanf("%d",&v[i]);
+        for(int k = 0; k<n; k++){
+           scanf("%d",&m[i][k]);
+        }
     }
-  InverteVetor(v, n);
-  for(int i = 0; i<n; i++){
-    printf("%d\n", v[i]);
-  }
-  free(v);
+  sum = SomaAbaixoDiagonal(m) ;
+  printf("%d\n", sum);
   return 0;
 }

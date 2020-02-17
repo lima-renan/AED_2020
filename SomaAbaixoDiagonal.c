@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int SomaAbaixoDiagonal (int **m, int n){
-    int sum = 0, *p;
+    int sum = 0;
   for(int i = 0; i<n; i++){
     for(int k = 0; k<n; k++){
         if(i == k && i != (n-1) && k != (n-1) ){

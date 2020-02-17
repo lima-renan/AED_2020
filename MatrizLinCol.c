@@ -2,25 +2,22 @@
 #include <stdlib.h>
 
 int MatrizLinCol (int **m, int n){
-    int cont =0, cont_zero_linha = 0, cont_um_linha = 0, cont_zero_coluna = 0, cont_um_coluna = 0;
+    int cont_zero_linha = 0, cont_um_linha = 0, cont_zero_coluna = 0, cont_um_coluna = 0;
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++){
             if(m[i][j] == 0){
                 cont_zero_linha++;
             }
-            else if(m[i][j] == 0){
+            if(m[i][j] == 1){
                 cont_um_linha++;
             }
-            else if(m[j][i] == 0){
+            if(m[j][i] == 0){
                 cont_zero_coluna++;
             }
-            else if(m[j][i] == 0){
-                cont_zero_coluna++;
-            }
-            else if(m[j][i] == 1){
+            if(m[j][i] == 1){
                 cont_um_coluna++;
             }
-            else if(j == n-1){
+            if(j == n-1){
                 if(cont_zero_linha != (n-1) || cont_um_linha != 1 || cont_zero_coluna != (n-1) || cont_um_coluna != 1){
                     return 0;
                 }

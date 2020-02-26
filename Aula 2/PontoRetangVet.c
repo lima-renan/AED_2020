@@ -10,7 +10,7 @@ int checkpoints (int n, ponto *p, ponto r1, ponto r2){
   int cont = 0;
   for(int i = 0; i < n; i++){
     if((float)p[i].x != (float)r1.x && (float)p[i].x != (float)r2.x && (float)p[i].x > (float)r1.x && (float)p[i].x < (float)r2.x){
-      if((float)p[i].y != (float)r1.y && (float)p[i].y != (float)r2.y && (float)p[i].y > (float)r1.y && (float)p[i].x < (float)r2.y){
+      if((float)p[i].y != (float)r1.y && (float)p[i].y != (float)r2.y && (float)p[i].y > (float)r1.y && (float)p[i].y < (float)r2.y){
         cont++;
       }
     }
@@ -19,7 +19,7 @@ int checkpoints (int n, ponto *p, ponto r1, ponto r2){
 }
 
 int main() {
-  int result, n;
+  int result, n, cont = 0;
   ponto *p, r1, r2;
   scanf("%d", &n);
   p = malloc(n * sizeof(ponto));

@@ -57,10 +57,27 @@ void libera_pilha(Pilha *p) {
 
 Pilha* copia_pilha(Pilha *p) {
 	// escreva aqui seu codigo
+  Pilha *copia = (Pilha*) malloc(sizeof(Pilha));
+  Pilha *copia2 = (Pilha*) malloc(sizeof(Pilha));
+  int c;
+  Node *aux;
 	if(p->topo != NULL){
-
+    aux = p->topo;
+    while(aux != NULL){
+      empilha(copia2, aux->valor);
+      aux = aux->prox;
+    }
+    while(copia2->topo != NULL){
+      c = desempilha(copia2);
+      empilha(copia, c);
+     copia2->topo = copia2->topo;
+    }
+    free(copia2);
+    free(aux);
+    return copia;
 	}
-	return NULL;
+  copia->topo = NULL;
+  return copia;
 }
 
 void imprime_pilha(Pilha *p){
@@ -83,13 +100,14 @@ int main(){
 	int n, m;
 	teste = cria_pilha();
 	scanf("%d",&n);
-	for(int i = 0; i < n; i++){
-		scanf("%d",&m);
-		empilha(teste, m);
-	}
+  for(int i = 0; i < n; i++){
+    scanf("%d",&m);
+    empilha(teste, m);
+  }
 	copia = copia_pilha(teste);
 	imprime_pilha(copia);
 	imprime_pilha(teste);
+  libera_pilha(copia);
 	libera_pilha(teste);
 	return 0;
 }

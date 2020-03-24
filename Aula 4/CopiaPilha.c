@@ -57,7 +57,7 @@ void libera_pilha(Pilha *p) {
 
 Pilha* copia_pilha(Pilha *p) {
 	// escreva aqui seu codigo
-	if(p->topo != NULL{
+	if(p->topo != NULL){
 
 	}
 	return NULL;

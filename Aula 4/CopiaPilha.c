@@ -57,7 +57,7 @@ void libera_pilha(Pilha *p) {
 
 Pilha* copia_pilha(Pilha *p) {
 	// escreva aqui seu codigo
-	if(!pilha_vazia(p)){
+	if(p->topo != NULL{
 
 	}
 	return NULL;
@@ -79,7 +79,7 @@ void imprime_pilha(Pilha *p){
 }
 
 int main(){
-	Pilha *teste;
+	Pilha *teste, *copia;
 	int n, m;
 	teste = cria_pilha();
 	scanf("%d",&n);
@@ -87,6 +87,8 @@ int main(){
 		scanf("%d",&m);
 		empilha(teste, m);
 	}
+	copia = copia_pilha(teste);
+	imprime_pilha(copia);
 	imprime_pilha(teste);
 	libera_pilha(teste);
 	return 0;
